@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_calculator/calculator_screen.dart';
+import 'package:my_calculator/presentation/calculator_screen.dart';
 
 void main() {
   runApp(
-    const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: MyCalc(),
-    ),
-  );
+      const MaterialApp(home: CalcScreen(), debugShowCheckedModeBanner: false));
 }
