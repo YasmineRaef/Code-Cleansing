@@ -1,0 +1,46 @@
+import 'package:flutter/material.dart';
+
+List displayExpressions = [
+  'AC',
+  '+/-',
+  '%',
+  '/',
+  '7',
+  '8',
+  '9',
+  'x',
+  '4',
+  '5',
+  '6',
+  '-',
+  '1',
+  '2',
+  '3',
+  '+',
+  'BACK',
+  '0',
+  '.',
+  '='
+];
+List buttonColors = [
+  Colors.green[200],
+  Colors.blue[200],
+  Colors.blue[200],
+  Colors.blue[200],
+  Colors.indigoAccent[100],
+  Colors.indigoAccent[100],
+  Colors.indigoAccent[100],
+  Colors.blue[200],
+  Colors.indigoAccent[100],
+  Colors.indigoAccent[100],
+  Colors.indigoAccent[100],
+  Colors.blue[200],
+  Colors.indigoAccent[100],
+  Colors.indigoAccent[100],
+  Colors.indigoAccent[100],
+  Colors.blue[200],
+  Colors.pink[200],
+  Colors.pink[200],
+  Colors.pink[200],
+  Colors.green[200]
+];
