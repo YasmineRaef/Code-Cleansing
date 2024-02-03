@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-List displayExpressions = [
+const List<String> displayExpressions = [
   'AC',
   '+/-',
   '%',

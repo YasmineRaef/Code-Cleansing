@@ -3,13 +3,7 @@ class CalculatorLogic {
   static myResult(String buttonTyped) {
     double num1 = 0, num2 = 0, tempNum = 0;
     String result = "", operand = "";
-    if (buttonTyped == 'AC') {
-      num1 = 0;
-      num2 = 0;
-      result = '';
-      operand = '';
-      displayedExpression = '';
-    } else if (buttonTyped == '+/-') {
+    if (buttonTyped == '+/-') {
       if (displayedExpression[0] != '-') {
         result = '-$displayedExpression';
       } else {
@@ -24,19 +18,10 @@ class CalculatorLogic {
       result = '';
     } else if (buttonTyped == '=') {
       num2 = double.parse(displayedExpression);
-      if (operand == '+') {
-        result = (num1 + num2).toString();
-      } else if (operand == '-') {
-        result = (num1 - num2).toString();
-      } else if (operand == 'x') {
-        result = (num1 * num2).toString();
-      } else if (operand == '/') {
-        result = (num1 / num2).toString();
-      }
+      result = checkButton(num1, num2, buttonTyped).toString();
     } else if (buttonTyped == '%') {
       tempNum = double.parse(displayedExpression);
-      tempNum /= 100;
-      result = tempNum.toString();
+      result = (tempNum /= 100).toString();
     } else if (buttonTyped == 'BACK') {
       result = displayedExpression.substring(0, displayedExpression.length - 1);
     } else if (buttonTyped == '.') {
@@ -51,4 +36,23 @@ class CalculatorLogic {
     }
     displayedExpression = result;
   }
+}
+
+double checkButton(double num1, double num2, var x) {
+  double res = 0;
+  switch (x) {
+    case '+':
+      res = num1 + num2;
+      break;
+    case '-':
+      res = num1 - num2;
+      break;
+    case 'x':
+      res = num1 * num2;
+      break;
+    case '/':
+      res = num1 / num2;
+      break;
+  }
+  return res;
 }
