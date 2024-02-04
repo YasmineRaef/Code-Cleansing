@@ -21,11 +21,10 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
         body:
             Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
           Container(
-              padding: const EdgeInsets.all(20),
+              padding: const EdgeInsets.all(30),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Colors.grey[300],
-              ),
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.grey[300]),
               width: 350,
               height: 200,
               child: Text(CalculatorLogic.displayedExpression,
@@ -34,39 +33,22 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           for (int i = 0; i < 20; i += 4)
             Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
               for (int j = 0; j < 4; j++)
-                RoundedButton(
-                    buttonTyped: displayExpressions[i + j],
-                    buttonColor: buttonColors[i + j])
+                _buildRoundedButton(
+                    displayExpressions[i + j], buttonColors[i + j])
             ])
         ]));
   }
-}
 
-class RoundedButton extends StatefulWidget {
-  const RoundedButton(
-      {super.key, required this.buttonTyped, required this.buttonColor});
-
-  final String buttonTyped;
-  final Color buttonColor;
-
-  @override
-  State<RoundedButton> createState() => _RoundedButtonState();
-}
-class _RoundedButtonState extends State<RoundedButton> {
-  @override
-  Widget build(BuildContext context) {
-    setState(() {});
-    return CircleAvatar(
-        backgroundColor: widget.buttonColor,
-        radius: 35,
-        child: TextButton(
-            child: Text(widget.buttonTyped,
-                style: const TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20)),
-            onPressed: () {
-              CalculatorLogic.myResult(widget.buttonTyped);
-            }));
-  }
+  CircleAvatar _buildRoundedButton(String buttonTyped, Color? buttonColor) =>
+      CircleAvatar(
+          radius: 35,
+          backgroundColor: buttonColor,
+          child: TextButton(
+              child: Text(buttonTyped,
+                  style: const TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20)),
+              onPressed: () =>
+                  setState(() => CalculatorLogic.myResult(buttonTyped))));
 }
